@@ -1,3 +1,4 @@
+from enemies import *
 class hero:
     def __init__(self, health, attack, defense):
         self.health = health
@@ -6,29 +7,16 @@ class hero:
 
 player_character = hero(10, 3, 2)
 
-class enemy:
-    def __init__(self, name, health, attack, defense, bio):
-        self.name = name
-        self.health = health
-        self.attack = attack
-        self.defense = defense
-        self.bio = bio
-
-goblin = enemy("goblin", 6, 2, 1, "Generic fantasy fodder.")
-        
-
 battle_menu = {
     "1": "Attack",
     "2": "Assess",
 }
 
-goblin_damage_done = goblin.health + goblin.defense - player_character.attack 
+damage_done = player_character.attack - current_enemy.defense
 
-print(f"You encounter a {goblin.name}!\n")
+print(f"You encounter a {current_enemy.name}!\n")
 
-while goblin.health > 0:
-
-
+while current_enemy.health > 0:
     print("What will you do?\n")
     for option_number, option in battle_menu.items():
         print(f"{option_number}. {option}")
@@ -39,19 +27,19 @@ while goblin.health > 0:
         for option_number, option in battle_menu.items():
             print(f"{option_number}. {option}")
             choice = input()
-    
-
     if choice == "1":
-        print(f"\nYou attack the {goblin.name}!\n")
-        goblin.health -= goblin_damage_done
-        print(f"The {goblin.name} takes {goblin_damage_done} damage!\n")
-        if goblin.health <= 0:
+        print(f"\nYou attack the {current_enemy.name}!\n")
+        if damage_done <= 0:
+            damage_done = 1
+        current_enemy.health -= damage_done
+        print(f"The {current_enemy.name} takes {damage_done} damage!\n")
+        if current_enemy.health <= 0:
             print("The enemy is defeated!")
             break
     elif choice == "2":
-        print(f"\nYou assess the {goblin.name}")
+        print(f"\nYou assess the {current_enemy.name}")
         print(" ")
-        print(f"{goblin.name.capitalize()}: {goblin.bio}\n HP: {goblin.health}\n\n")
+        print(f"{current_enemy.name.capitalize()}: {current_enemy.bio}\n HP: {current_enemy.health}\n\n")
         
 
 
