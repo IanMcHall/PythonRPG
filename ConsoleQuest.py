@@ -1,3 +1,6 @@
+#TODO
+#Add enemy combat, losing player health, and lose conditon
+
 from enemies import *
 class hero:
     def __init__(self, health, attack, defense):
