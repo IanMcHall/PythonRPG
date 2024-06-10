@@ -2,26 +2,23 @@
 #Add critical hits, magic?, and items
 
 from enemies import *
-class hero:
-    def __init__(self, health, attack, defense):
-        self.health = health
-        self.attack = attack
-        self.defense = defense
-
-player_character = hero(10, 3, 2)
+from character_creator import *
 
 battle_menu = {
     "1": "Attack",
     "2": "Assess",
 }
 
-damage_done = player_character.attack - current_enemy.defense
-damage_taken= current_enemy.attack - player_character.defense
+character_creation()
 
+#battle logic
+damage_done = player_class.attack - current_enemy.defense
+damage_taken= current_enemy.attack - player_class.defense
 
-print(f"You encounter a {current_enemy.name}!\n")
+print(f"\nYou encounter a {current_enemy.name}!\n")
 
-while current_enemy.health > 0 or player_character.health > 0:
+#Battle loop
+while current_enemy.health > 0 or player_class.health > 0:
     print("What will you do?\n")
     for option_number, option in battle_menu.items():
         print(f"{option_number}. {option}")
@@ -31,7 +28,7 @@ while current_enemy.health > 0 or player_character.health > 0:
         print("Select a valid option")
         for option_number, option in battle_menu.items():
             print(f"{option_number}. {option}")
-            choice = input()
+        choice = input()
     if choice == "1":
         print(f"\nYou attack the {current_enemy.name}!\n")
         if damage_done <= 0:
@@ -48,9 +45,9 @@ while current_enemy.health > 0 or player_character.health > 0:
     print(f"\nThe {current_enemy.name} attacks!\n")
     if damage_taken <= 0:
         damage_taken = 1;
-    player_character.health -= damage_taken;
+    player_class.health -= damage_taken;
     print(f"\nThe {current_enemy.name} hits you for {damage_taken} HP!\n")
-    if player_character.health <= 0:
+    if player_class.health <= 0:
         print("The enemy defeats you...")
         break
 
