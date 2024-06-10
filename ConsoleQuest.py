@@ -2,23 +2,28 @@
 #Add critical hits, magic?, and items
 #Add better documentation
 
+#"import *" imports all data from the specified files. Classes, object instances, etc.
 from enemies import *
 from character_creator import *
 
-battle_menu = {
-    "1": "Attack",
-    "2": "Assess",
-}
-
+#Calls the "character_creation function from the "character_creator.py file."
+#Allows you to choose your class.
 character_creation()
 
 #battle logic
 damage_done = player_class.attack - current_enemy.defense
 damage_taken= current_enemy.attack - player_class.defense
 
+#Battle loop
+
 print(f"\nYou encounter a {current_enemy.name}!\n")
 
-#Battle loop
+battle_menu = {
+    "1": "Attack",
+    "2": "Assess",
+    "3": "Status"
+}
+
 while current_enemy.health > 0 or player_class.health > 0:
     print("What will you do?\n")
     for option_number, option in battle_menu.items():
@@ -43,6 +48,10 @@ while current_enemy.health > 0 or player_class.health > 0:
         print(f"\nYou assess the {current_enemy.name}")
         print(" ")
         print(f"{current_enemy.name.capitalize()}: {current_enemy.bio}\n HP: {current_enemy.health}\n\n")
+        continue
+    elif choice == "3":
+        print(f"\nYou have {player_class.health} HP.\n")
+        continue
     print(f"\nThe {current_enemy.name} attacks!\n")
     if damage_taken <= 0:
         damage_taken = 1;
@@ -51,6 +60,7 @@ while current_enemy.health > 0 or player_class.health > 0:
     if player_class.health <= 0:
         print("The enemy defeats you...")
         break
+    
 
         
 
