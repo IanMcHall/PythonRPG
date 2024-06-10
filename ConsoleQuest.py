@@ -1,5 +1,6 @@
 #TODO
 #Add critical hits, magic?, and items
+#Add better documentation
 
 from enemies import *
 from character_creator import *
