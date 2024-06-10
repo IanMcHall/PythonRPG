@@ -1,5 +1,5 @@
 #TODO
-#Add enemy combat, losing player health, and lose conditon
+#Add critical hits, magic?, and items
 
 from enemies import *
 class hero:
@@ -16,10 +16,12 @@ battle_menu = {
 }
 
 damage_done = player_character.attack - current_enemy.defense
+damage_taken= current_enemy.attack - player_character.defense
+
 
 print(f"You encounter a {current_enemy.name}!\n")
 
-while current_enemy.health > 0:
+while current_enemy.health > 0 or player_character.health > 0:
     print("What will you do?\n")
     for option_number, option in battle_menu.items():
         print(f"{option_number}. {option}")
@@ -43,6 +45,15 @@ while current_enemy.health > 0:
         print(f"\nYou assess the {current_enemy.name}")
         print(" ")
         print(f"{current_enemy.name.capitalize()}: {current_enemy.bio}\n HP: {current_enemy.health}\n\n")
+    print(f"\nThe {current_enemy.name} attacks!\n")
+    if damage_taken <= 0:
+        damage_taken = 1;
+    player_character.health -= damage_taken;
+    print(f"\nThe {current_enemy.name} hits you for {damage_taken} HP!\n")
+    if player_character.health <= 0:
+        print("The enemy defeats you...")
+        break
+
         
 
 
