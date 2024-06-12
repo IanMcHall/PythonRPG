@@ -1,6 +1,6 @@
 #TODO
 #Add critical hits, magic?, and items
-#Change assessing enemy or checking player status not take take a turn.
+#Allow player to make menu slection BEFORE enemy's first attack
 #Implement multiple enemies to single battle.
 #Add better documentation
 

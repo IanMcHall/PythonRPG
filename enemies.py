@@ -15,5 +15,5 @@ bolder = enemy("bolder", 10, 3, 5, 1, "A particularly brave rock. It looks at yo
 #reaper is a test enemy and is too strong for gameplay
 reaper = enemy("reaper", 100, 100, 100, 100, "There is no escape from death...")
 
-enemies = [goblin, bearbug,]
+enemies = [goblin, bearbug]
 current_enemy = random.choice(enemies)
