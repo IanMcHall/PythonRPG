@@ -11,8 +11,11 @@ def battle():
     
     combat_active = current_enemy.health > 0 and player_class.health > 0
     player_turn = player_class.speed > current_enemy.speed 
+    print(f"\nYou encounter a {current_enemy.name}!\n")
+    if current_enemy.speed > player_class.speed:
+        print(f"\nThe {current_enemy.name} has the upper hand!\n")
     while combat_active:
-        print(f"\nYou encounter a {current_enemy.name}!\n")
+        
         if player_turn:
             print("What will you do?\n")
             for option_number, option in battle_menu.items():
