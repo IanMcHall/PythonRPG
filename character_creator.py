@@ -1,20 +1,20 @@
+from menus import *
+
 class player_classes:
-    def __init__(self, class_name, health, attack, defense):
+    def __init__(self, class_name, health, attack, defense, speed):
         self.class_name = class_name
         self.health = health
         self.attack = attack
         self.defense = defense
+        self.speed = speed
 
 
-warrior = player_classes("warrior", 10, 4, 2)
-paladin = player_classes("paladin", 10, 2, 4)
+warrior = player_classes("warrior", 10, 4, 2, 3)
+paladin = player_classes("paladin", 10, 2, 4, 3)
 
 valid_classes = [warrior, paladin]
 
-character_creation_menu = {
-    "1": "Warrior",
-    "2": "Paladin",
-}
+
 
 #the player_class variable will be an instance of the player_classes class
 player_class = None
