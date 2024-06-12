@@ -17,7 +17,7 @@ def battle():
     while combat_active:
         
         if player_turn:
-            print("What will you do?\n")
+            print("\nWhat will you do?\n")
             for option_number, option in battle_menu.items():
                 print(f"{option_number}. {option}")
             choice = input()

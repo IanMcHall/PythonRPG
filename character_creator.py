@@ -37,7 +37,7 @@ def character_creation():
             player_class = warrior
         elif choice == "2":
             player_class = paladin
-        print(f"You are a {player_class.class_name}.\n You have {player_class.health} HP, {player_class.attack} attack, and {player_class.defense} defense.")
+        print(f"\nYou are a {player_class.class_name}.\n You have {player_class.health} HP, {player_class.attack} attack, and {player_class.defense} defense.\n")
     
 #DO NOT COMMENT OUT, WILL BREAK CALL ON MAIN FILE.
 character_creation()
