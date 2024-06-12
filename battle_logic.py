@@ -11,6 +11,7 @@ def battle():
     print(f"\nYou encounter a {current_enemy.name}!\n")
     while current_enemy.health > 0 or player_class.health > 0:
         if player_class.speed > current_enemy.speed:
+            #Player turn begins if player has higher speed stat.
             print("What will you do?\n")
             for option_number, option in battle_menu.items():
                 print(f"{option_number}. {option}")
@@ -38,6 +39,8 @@ def battle():
             elif choice == "3":
                 print(f"\nYou have {player_class.health} HP.\n")
                 continue
+            
+            #Enemy turn begins if player has higher speed stat.
             print(f"\nThe {current_enemy.name} attacks!\n")
             if damage_taken <= 0:
                 damage_taken = 1;
@@ -46,7 +49,10 @@ def battle():
             if player_class.health <= 0:
                 print("The enemy defeats you...")
                 break
+            
+            
         elif current_enemy.speed > player_class.speed:
+            #enemy turn begins if enemy has higher speed stat.
             print(f"\nThe {current_enemy.name} attacks!\n")
             if damage_taken <= 0:
                 damage_taken = 1;
@@ -55,11 +61,11 @@ def battle():
             if player_class.health <= 0:
                 print("The enemy defeats you...")
                 break
+            #Player turn begins if enemy has higher speed stat.
             print("What will you do?\n")
             for option_number, option in battle_menu.items():
                 print(f"{option_number}. {option}")
             choice = input()
-
             while choice not in battle_menu:
                 print("Select a valid option")
                 for option_number, option in battle_menu.items():
