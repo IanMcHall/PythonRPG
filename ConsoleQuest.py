@@ -1,6 +1,8 @@
 #TODO
 #Add critical hits, magic?, and items
 #Change assessing enemy or checking player status not take take a turn.
+#Break parts of battle logic into smaller, more manageable functions? 
+#Implement multiple enemies to single battle.
 #Add better documentation
 
 #"import *" imports all data from the specified files. Classes, object instances, etc.
