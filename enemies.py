@@ -23,29 +23,72 @@ third_enemy = random.choice(enemies)
 fourth_enemy = random.choice(enemies)
 
 def number_of_enemies():
-
-    second_enemy_encounter =  None
-    third_enemy_encounter =  None
-    fourth_enemy_encounter =  None
+    enemy_one = current_enemy.name
+    enemy_two = second_enemy.name
+    enemy_three = third_enemy.name
+    enemy_four = fourth_enemy.name
+    second_enemy_encounter =  False
+    third_enemy_encounter =  False
+    fourth_enemy_encounter =  False
 
     if random.choice([0,1]) > 0:
-        second_enemy_encounter = True 
+        second_enemy_encounter = True
     if second_enemy_encounter and random.choice([0,3]) > 2:
             third_enemy_encounter = True
     if third_enemy_encounter and random.choice([0,7]) > 6:
             fourth_enemy_encounter = True
     
-    # if current_enemy.name == second_enemy.name:
-    #     current_enemy.name = current_enemy.name + " A"
-    #     second_enemy.name = second_enemy.name + " B"
+
+
+    if current_enemy.name == second_enemy.name:
+        enemy_one = current_enemy.name + " a"
+        enemy_two = second_enemy.name + " b"
+    elif current_enemy.name != second_enemy.name:
+         enemy_one = current_enemy.name
+         enemy_two = second_enemy.name
+    elif current_enemy.name == third_enemy.name:
+        enemy_one = current_enemy.name + " a"
+        enemy_three = third_enemy.name + " b"
+    elif current_enemy.name == fourth_enemy.name:
+        enemy_one = current_enemy.name + " a"
+        enemy_four = fourth_enemy.name + " b" 
+    if second_enemy.name == third_enemy.name and second_enemy.name != current_enemy.name:
+        enemy_two = second_enemy.name + " a"
+        enemy_three = third_enemy.name + " b"
+    elif second_enemy.name == fourth_enemy.name and second_enemy.name != current_enemy.name:
+         enemy_two = second_enemy.name + " a"
+         enemy_four = fourth_enemy.name + " b"
+    elif second_enemy.name == third_enemy.name:
+         enemy_three = third_enemy.name + " c"
+    
+    if third_enemy.name != current_enemy.name and third_enemy.name != second_enemy.name:
+        enemy_three = third_enemy.name
+    elif third_enemy.name == current_enemy.name and third_enemy.name != second_enemy.name:
+         enemy_one = current_enemy.name + " a"
+         enemy_three = third_enemy.name + " b"
+    elif  third_enemy.name != current_enemy.name and third_enemy.name != second_enemy.name and third_enemy.name == fourth_enemy.name:
+         enemy_three = third_enemy.name + " a"
+         enemy_four = fourth_enemy.name + " b"
+    elif third_enemy.name == fourth_enemy.name and third_enemy.name != current_enemy.name:
+        enemy_three = third_enemy.name + " b"
+        enemy_four = fourth_enemy.name + " c"
+    elif third_enemy.name == fourth_enemy.name and third_enemy.name:
+         enemy_four = fourth_enemy.name + " d"
+    elif third_enemy.name == current_enemy.name and third_enemy.name != second_enemy.name and third_enemy.name == fourth_enemy.name:
+         enemy_one = current_enemy.name + " a"
+         enemy_three = third_enemy.name + " b"
+         enemy_four = fourth_enemy.name + " c"
+
          
-                
-    print(current_enemy.name)
-    if second_enemy_encounter == True:
-        print(second_enemy.name)
+         
+    if second_enemy_encounter == True:            
+        print(enemy_one)
+        print(enemy_two)
+    else:
+         print(current_enemy.name)
     if third_enemy_encounter == True:
-        print(third_enemy.name)
+        print(enemy_three)
     if fourth_enemy_encounter == True:
-        print(fourth_enemy.name)
+        print(enemy_four)
 
 number_of_enemies()
