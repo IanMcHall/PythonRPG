@@ -6,16 +6,20 @@ from battle_logic import *
 
 
 def battle():
-    damage_done = player_class.attack - current_enemy.defense
-    damage_taken= current_enemy.attack - player_class.defense
+    damage_done = player_character.attack - current_enemy.defense
+    damage_taken = current_enemy.attack - player_character.defense
+    combat_active = current_enemy.health > 0 and player_character.health > 0
+    battle_start = current_enemy.health > 0 and player_character.health > 0
+    player_turn = player_character.speed > current_enemy.speed
     
-    combat_active = current_enemy.health > 0 and player_class.health > 0
-    player_turn = player_class.speed > current_enemy.speed 
-    print(f"\nYou encounter a {current_enemy.name}!\n")
-    if current_enemy.speed > player_class.speed:
-        print(f"\nThe {current_enemy.name} has the upper hand!\n")
+    #displays at start of battle
+    while battle_start: 
+        print(f"\nYou encounter a {current_enemy.name}!\n")
+        if current_enemy.speed > player_character.speed:
+            print(f"\nThe {current_enemy.name} has the upper hand!\n")
+        battle_start = False
     while combat_active:
-        
+        #player turn    
         if player_turn:
             print("\nWhat will you do?\n")
             for option_number, option in battle_menu.items():
@@ -44,16 +48,16 @@ def battle():
                 print(f"\nYou assess the {current_enemy.name}\n")
                 print(f"{current_enemy.name.capitalize()}: {current_enemy.bio}\n HP: {current_enemy.health}\n\n")
             elif choice == "3":
-                print(f"\nYou have {player_class.health} HP.\n")
-            
+                print(f"\nYou have {player_character.health} HP.\n")
+        #enemy turn   
         elif player_turn == False:
             print(f"\nThe {current_enemy.name} attacks!\n")
             if damage_taken <= 0:
                 damage_taken = 1;
-            player_class.health -= damage_taken;
+            player_character.health -= damage_taken;
             print(f"\nThe {current_enemy.name} hits you for {damage_taken} HP!\n")
             player_turn = True
-            if player_class.health <= 0:
+            if player_character.health <= 0:
                 print("The enemy defeats you...")
                 combat_active = False
                 break

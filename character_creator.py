@@ -16,12 +16,12 @@ valid_classes = [warrior, paladin]
 
 
 
-#the player_class variable will be an instance of the player_classes class
-player_class = None
+#the player_class variable will be an instance of the player_characteres class
+player_character = None
 
 def character_creation():
-    global player_class
-    while player_class not in valid_classes:
+    global player_character
+    while player_character not in valid_classes:
         print("Select your class:")
         for option_number, option in character_creation_menu.items():
             print(f"{option_number}. {option}")
@@ -34,10 +34,10 @@ def character_creation():
             choice = input()
 
         if choice == "1":
-            player_class = warrior
+            player_character = warrior
         elif choice == "2":
-            player_class = paladin
-        print(f"\nYou are a {player_class.class_name}.\n You have {player_class.health} HP, {player_class.attack} attack, and {player_class.defense} defense.\n")
+            player_character = paladin
+        print(f"\nYou are a {player_character.class_name}.\n You have {player_character.health} HP, {player_character.attack} attack, and {player_character.defense} defense.\n")
     
 #DO NOT COMMENT OUT, WILL BREAK CALL ON MAIN FILE.
 character_creation()
