@@ -3,7 +3,7 @@ from character_creator import *
 from menus import *
 from battle_logic import *
 
-
+#number_of_enemies()
 
 def battle():
     damage_done = player_character.attack - current_enemy.defense
@@ -12,9 +12,19 @@ def battle():
     battle_start = current_enemy.health > 0 and player_character.health > 0
     player_turn = player_character.speed > current_enemy.speed
     
+    #Remove this after "number_of_enemies" is implemented correctly
+    second_enemy = False
     #displays at start of battle
     while battle_start: 
-        print(f"\nYou encounter a {current_enemy.name}!\n")
+        if second_enemy == False:
+            print(f"\nYou encounter a {current_enemy.name}!\n")
+        if second_enemy == True and current_enemy.name == second_enemy.name:
+            print(f"\nYou encounter {current_enemy.name}!\n")
+            print(f"\nYou encounter {second_enemy.name}!\n")
+        if third_enemy == True:
+            print(f"\nYou encounter a {third_enemy.name}!\n")
+        if fourth_enemy == True:
+            print(f"\nYou encounter a {fourth_enemy.name}!\n")
         if current_enemy.speed > player_character.speed:
             print(f"\nThe {current_enemy.name} has the upper hand!\n")
         battle_start = False
