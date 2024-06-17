@@ -6,27 +6,27 @@ from battle_logic import *
 #number_of_enemies()
 
 def battle():
-    damage_done = player_character.attack - current_enemy.defense
-    damage_taken = current_enemy.attack - player_character.defense
-    combat_active = current_enemy.health > 0 and player_character.health > 0
-    battle_start = current_enemy.health > 0 and player_character.health > 0
-    player_turn = player_character.speed > current_enemy.speed
+    damage_done = player_character.attack - first_enemy.defense
+    damage_taken = first_enemy.attack - player_character.defense
+    combat_active = first_enemy.health > 0 and player_character.health > 0
+    battle_start = first_enemy.health > 0 and player_character.health > 0
+    player_turn = player_character.speed > first_enemy.speed
     
     #Remove this after "number_of_enemies" is implemented correctly
     second_enemy = False
     #displays at start of battle
     while battle_start: 
         if second_enemy == False:
-            print(f"\nYou encounter a {current_enemy.name}!\n")
-        if second_enemy == True and current_enemy.name == second_enemy.name:
-            print(f"\nYou encounter {current_enemy.name}!\n")
+            print(f"\nYou encounter a {first_enemy.name}!\n")
+        if second_enemy == True and first_enemy.name == second_enemy.name:
+            print(f"\nYou encounter {first_enemy.name}!\n")
             print(f"\nYou encounter {second_enemy.name}!\n")
         if third_enemy == True:
             print(f"\nYou encounter a {third_enemy.name}!\n")
         if fourth_enemy == True:
             print(f"\nYou encounter a {fourth_enemy.name}!\n")
-        if current_enemy.speed > player_character.speed:
-            print(f"\nThe {current_enemy.name} has the upper hand!\n")
+        if first_enemy.speed > player_character.speed:
+            print(f"\nThe {first_enemy.name} has the upper hand!\n")
         battle_start = False
     while combat_active:
         #player turn    
@@ -42,12 +42,12 @@ def battle():
                     print(f"{option_number}. {option}")
                 choice = input()
             if choice == "1":
-                print(f"\nYou attack the {current_enemy.name}!\n")
+                print(f"\nYou attack the {first_enemy.name}!\n")
                 if damage_done <= 0:
                     damage_done = 1
-                current_enemy.health -= damage_done
-                print(f"The {current_enemy.name} takes {damage_done} damage!\n")
-                if current_enemy.health <= 0:
+                first_enemy.health -= damage_done
+                print(f"The {first_enemy.name} takes {damage_done} damage!\n")
+                if first_enemy.health <= 0:
                     print("The enemy is defeated!")
                     combat_active = False
                     break
@@ -55,17 +55,17 @@ def battle():
                     player_turn = False
                 
             elif choice == "2":
-                print(f"\nYou assess the {current_enemy.name}\n")
-                print(f"{current_enemy.name.capitalize()}: {current_enemy.bio}\n HP: {current_enemy.health}\n\n")
+                print(f"\nYou assess the {first_enemy.name}\n")
+                print(f"{first_enemy.name.capitalize()}: {first_enemy.bio}\n HP: {first_enemy.health}\n\n")
             elif choice == "3":
                 print(f"\nYou have {player_character.health} HP.\n")
         #enemy turn   
         elif player_turn == False:
-            print(f"\nThe {current_enemy.name} attacks!\n")
+            print(f"\nThe {first_enemy.name} attacks!\n")
             if damage_taken <= 0:
                 damage_taken = 1;
             player_character.health -= damage_taken;
-            print(f"\nThe {current_enemy.name} hits you for {damage_taken} HP!\n")
+            print(f"\nThe {first_enemy.name} hits you for {damage_taken} HP!\n")
             player_turn = True
             if player_character.health <= 0:
                 print("The enemy defeats you...")
