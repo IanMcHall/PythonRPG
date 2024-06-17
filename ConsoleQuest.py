@@ -1,8 +1,9 @@
 #TODO
-#Add critical hits, magic?, and items
+#Add critical hits, magic(?), and items
 #Allow player to make menu slection BEFORE enemy's first attack
-#Implement multiple enemies to single battle. //CONTINUE DEBUGGING LETTER ASSIGNER
-#Add better documentation
+#Implement multiple enemies to single battle.
+#Add keyboard support for menus
+#Add better documentation (always true)
 
 #To play, run this file.
 
