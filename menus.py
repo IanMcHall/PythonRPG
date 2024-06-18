@@ -1,7 +1,9 @@
-character_creation_menu = {
-    "1": "Warrior",
-    "2": "Paladin",
-}
+from pick import pick
+
+# character_creation_menu = {
+#     "1": "Warrior",
+#     "2": "Paladin",
+# }
 
 battle_menu = {
     "1": "Attack",
