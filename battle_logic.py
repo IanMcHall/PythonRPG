@@ -11,6 +11,7 @@ def battle():
     combat_active = first_enemy.health > 0 and player_character.health > 0
     battle_start = first_enemy.health > 0 and player_character.health > 0
     player_turn = player_character.speed > first_enemy.speed
+
     
     #Remove this after "number_of_enemies" is implemented correctly
     second_enemy = False
@@ -31,34 +32,35 @@ def battle():
     while combat_active:
         #player turn    
         if player_turn:
-            print("\nWhat will you do?\n")
-            for option_number, option in battle_menu.items():
-                print(f"{option_number}. {option}")
-            choice = input()
+            battle_menu()
+            # print("\nWhat will you do?\n")
+            # for option_number, option in battle_menu.items():
+            #     print(f"{option_number}. {option}")
+            # choice = input()
 
-            while choice not in battle_menu:
-                print("\nSelect a valid option\n")
-                for option_number, option in battle_menu.items():
-                    print(f"{option_number}. {option}")
-                choice = input()
-            if choice == "1":
-                print(f"\nYou attack the {first_enemy.name}!\n")
-                if damage_done <= 0:
-                    damage_done = 1
-                first_enemy.health -= damage_done
-                print(f"The {first_enemy.name} takes {damage_done} damage!\n")
-                if first_enemy.health <= 0:
-                    print("The enemy is defeated!")
-                    combat_active = False
-                    break
-                else:
-                    player_turn = False
+            # while choice not in battle_menu:
+            #     print("\nSelect a valid option\n")
+            #     for option_number, option in battle_menu.items():
+            #         print(f"{option_number}. {option}")
+            #     choice = input()
+            # if choice == "1":
+            #     print(f"\nYou attack the {first_enemy.name}!\n")
+            #     if damage_done <= 0:
+            #         damage_done = 1
+            #     first_enemy.health -= damage_done
+            #     print(f"The {first_enemy.name} takes {damage_done} damage!\n")
+            #     if first_enemy.health <= 0:
+            #         print("The enemy is defeated!")
+            #         combat_active = False
+            #         break
+            #     else:
+            #         player_turn = False
                 
-            elif choice == "2":
-                print(f"\nYou assess the {first_enemy.name}\n")
-                print(f"{first_enemy.name.capitalize()}: {first_enemy.bio}\n HP: {first_enemy.health}\n\n")
-            elif choice == "3":
-                print(f"\nYou have {player_character.health} HP.\n")
+            # elif choice == "2":
+            #     print(f"\nYou assess the {first_enemy.name}\n")
+            #     print(f"{first_enemy.name.capitalize()}: {first_enemy.bio}\n HP: {first_enemy.health}\n\n")
+            # elif choice == "3":
+            #     print(f"\nYou have {player_character.health} HP.\n")
         #enemy turn   
         elif player_turn == False:
             print(f"\nThe {first_enemy.name} attacks!\n")
