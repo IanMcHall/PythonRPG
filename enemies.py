@@ -65,9 +65,4 @@ def number_of_enemies():
              final_current_enemies.append(enemy)
     for enemy in final_current_enemies:
          print(enemy)
-            
-    
-
-number_of_enemies()
-
              

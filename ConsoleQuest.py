@@ -19,4 +19,5 @@ from battle_logic import *
 character_creation()
 #Calls the "battle()" function from the "battle_logic.py" file. 
 #Initiates and carries out a fight with an enemy.
-battle()
+#if character_created == True:
+#battle()

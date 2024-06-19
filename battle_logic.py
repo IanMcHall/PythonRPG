@@ -74,4 +74,3 @@ def battle():
                 combat_active = False
                 break
             
-battle()

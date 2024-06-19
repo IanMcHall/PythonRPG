@@ -36,4 +36,4 @@ def battle_menu():
     elif index == 2:
         print(f"\nYou have {player_character.health} HP.\n")
 
-battle_menu()
+

@@ -1,4 +1,4 @@
-from menus import *
+
 from pick import pick
 
 class player_classes:
@@ -31,4 +31,3 @@ def character_creation():
     elif index == 1:
         player_character = paladin
     print(f"\nYou are a {player_character.class_name}.\n You have {player_character.health} HP, {player_character.attack} attack, and {player_character.defense} defense.\n")
-character_creation()
