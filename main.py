@@ -16,7 +16,13 @@ from battle_logic import *
 
 #Calls the "character_creation function from the "character_creator.py file."
 #Allows you to choose your class.
-character_creation()
+
+#character_creation()
+
+player_character = character_creation()
+print(player_character.attack)
 #Calls the "battle()" function from the "battle_logic.py" file. 
 #Initiates and carries out a fight with an enemy.
+
+
 #battle()

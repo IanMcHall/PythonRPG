@@ -3,6 +3,7 @@ from character_creator import *
 from menus import *
 from battle_logic import *
 
+
 #number_of_enemies()
 
 def battle():
@@ -19,15 +20,15 @@ def battle():
     while battle_start: 
         if second_enemy == False:
             print(f"\nYou encounter a {first_enemy.name}!\n")
-        if second_enemy == True and first_enemy.name == second_enemy.name:
-            print(f"\nYou encounter {first_enemy.name}!\n")
-            print(f"\nYou encounter {second_enemy.name}!\n")
-        if third_enemy == True:
-            print(f"\nYou encounter a {third_enemy.name}!\n")
-        if fourth_enemy == True:
-            print(f"\nYou encounter a {fourth_enemy.name}!\n")
-        if first_enemy.speed > player_character.speed:
-            print(f"\nThe {first_enemy.name} has the upper hand!\n")
+        # if second_enemy == True and first_enemy.name == second_enemy.name:
+        #     print(f"\nYou encounter {first_enemy.name}!\n")
+        #     print(f"\nYou encounter {second_enemy.name}!\n")
+        # if third_enemy == True:
+        #     print(f"\nYou encounter a {third_enemy.name}!\n")
+        # if fourth_enemy == True:
+        #     print(f"\nYou encounter a {fourth_enemy.name}!\n")
+        # if first_enemy.speed > player_character.speed:
+        #     print(f"\nThe {first_enemy.name} has the upper hand!\n")
         battle_start = False
     while combat_active:
         #player turn    
