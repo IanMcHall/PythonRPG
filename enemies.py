@@ -63,8 +63,8 @@ def number_of_enemies():
              final_current_enemies.append(updated_name)
         else:
              final_current_enemies.append(enemy)
-    for enemy in final_current_enemies:
-         print(enemy)
-
- 
-#number_of_enemies()
+    return final_current_enemies
+    # for enemy in final_current_enemies:
+    #      print(enemy)
+    
+final_current_enemies = number_of_enemies()
