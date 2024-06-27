@@ -2,16 +2,7 @@ from pick import pick
 from enemies import *
 from character_creator import *
 
-# character_creation_menu = {
-#     "1": "Warrior",
-#     "2": "Paladin",
-# }
 
-battle_menu = {
-    "1": "Attack",
-    "2": "Assess",
-    "3": "Status"
-}
 
 def battle_menu():
     title = "What will you do?"
