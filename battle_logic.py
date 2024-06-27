@@ -69,7 +69,7 @@ def battle():
         battle_intro = False
 
 
-    
+    #There seems to be an issue where an enemy isn't removed from combat when killed. FIX.
      
         
         
