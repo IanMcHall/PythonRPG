@@ -118,5 +118,6 @@ def battle():
                 print("The enemy defeats you...")
                 combat_active = False
                 break
+            player_turn = True
 battle()
             
