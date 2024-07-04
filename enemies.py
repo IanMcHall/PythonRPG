@@ -104,4 +104,10 @@ enemies_by_speed = sorted(final_enemies, key=lambda enemy:enemy.speed, reverse=T
 # enemy_name_by_speed = [enemy.name for enemy in enemies_by_speed]
 # print(enemy_name_by_speed)
 
-
+def remove_enemy(enemy):
+    if enemy in final_enemies:
+        final_enemies.remove(enemy)
+    if enemy in enemies_by_speed:
+        enemies_by_speed.remove(enemy)
+    if enemy in enemy_names:
+         enemy_names.remove(enemy) 

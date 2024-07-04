@@ -13,14 +13,16 @@ def battle():
     
     
     
-
+    def update_enemy_names():
+        return [enemy.name for enemy in final_enemies]
+    enemy_names = update_enemy_names()
 
 
     def battle_menu():
         #nonlocal allows me to call variables outside of the scope of this function.
         nonlocal damage_done, combat_active, player_turn
         def enemy_selector():
-            nonlocal player_turn, damage_done
+            nonlocal player_turn, damage_done, enemy_names
 
             title = "Select a target"
             options = enemy_names
@@ -36,7 +38,8 @@ def battle():
                 (input)
                 if first_enemy.health <= 0:
                     print(f"{first_enemy.name} is defeated!")
-                    final_enemies.pop(0)
+                    remove_enemy(final_enemies[0])
+                    enemy_names = update_enemy_names()
                 input()
                 player_turn = False
             elif index == 1:
@@ -48,7 +51,8 @@ def battle():
                 (input)
                 if second_enemy.health <= 0:
                     print(f"{second_enemy.name} is defeated!")
-                    final_enemies.pop(1)
+                    remove_enemy(final_enemies[1])
+                    enemy_names = update_enemy_names()
                 input()
                 player_turn = False
             elif index == 2:
@@ -60,7 +64,8 @@ def battle():
                 (input)
                 if third_enemy.health <= 0:
                     print(f"{third_enemy.name} is defeated!")
-                    final_enemies.pop(2)
+                    remove_enemy(final_enemies[2])
+                    enemy_names = update_enemy_names()
                 input()
                 player_turn = False
             elif index == 3: 
@@ -72,8 +77,8 @@ def battle():
                 (input)
                 if fourth_enemy.health <= 0:
                     print(f"{fourth_enemy.name} is defeated!")
-                    final_enemies.remove(fourth_enemy)
-                    final_enemies.pop(3)
+                    remove_enemy(final_enemies[3])
+                    enemy_names = update_enemy_names()
                 input()
                 player_turn = False
         
