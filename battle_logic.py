@@ -15,7 +15,7 @@ def battle():
         #nonlocal allows me to call variables outside of the scope of this function.
         nonlocal damage_done, combat_active, player_turn
         def enemy_selector():
-            nonlocal player_turn
+            nonlocal player_turn, damage_done
 
             title = "Select a target"
             options = final_current_enemies
@@ -26,10 +26,13 @@ def battle():
                 if damage_done <= 0:
                     damage_done = 1
                 first_enemy.health -= damage_done
+                input()
                 print(f"The {first_enemy.name} takes {damage_done} damage!\n")
                 (input)
                 if first_enemy.health <= 0:
                     print(f"{first_enemy.name} is defeated!")
+                    final_current_enemies.pop(0)
+                input()
                 player_turn = False
             elif index == 1:
                 print(f"\nYou attack the {second_enemy.name}!\n")
@@ -40,6 +43,8 @@ def battle():
                 (input)
                 if second_enemy.health <= 0:
                     print(f"{second_enemy.name} is defeated!")
+                    final_current_enemies.pop(1)
+                input()
                 player_turn = False
             elif index == 2:
                 print(f"\nYou attack the {third_enemy.name}!\n")
@@ -50,6 +55,8 @@ def battle():
                 (input)
                 if third_enemy.health <= 0:
                     print(f"{third_enemy.name} is defeated!")
+                    final_current_enemies.pop(2)
+                input()
                 player_turn = False
             elif index == 3: 
                 print(f"\nYou attack the {fourth_enemy.name}!\n")
@@ -60,6 +67,9 @@ def battle():
                 (input)
                 if fourth_enemy.health <= 0:
                     print(f"{fourth_enemy.name} is defeated!")
+                    final_current_enemies.remove(fourth_enemy)
+                    final_current_enemies.pop(3)
+                input()
                 player_turn = False
         
         title = "What will you do?"
@@ -84,8 +94,6 @@ def battle():
         combat_active = True
         player_turn = True
 
-
-    #There seems to be an issue where an enemy isn't removed from combat when killed. FIX.
     while combat_active:
         #player turn    
         if player_turn:
