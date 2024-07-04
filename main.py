@@ -2,6 +2,8 @@
 #Add critical hits, magic(?), and items
 #Allow player to make menu slection BEFORE enemy's first attack
 #Add better documentation (always true) --especially needed for enemy.py
+#End battle if all enemies are defeated
+#Make sure palyer turn falls correctly in speed order.
 
 
 

@@ -12,11 +12,10 @@ def battle():
     player_turn = player_character.speed > first_enemy.speed and second_enemy.speed and third_enemy.speed and fourth_enemy.speed
     
     
-    
     def update_enemy_names():
         return [enemy.name for enemy in final_enemies]
     enemy_names = update_enemy_names()
-
+    
 
     def battle_menu():
         #nonlocal allows me to call variables outside of the scope of this function.
