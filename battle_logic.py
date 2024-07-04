@@ -23,7 +23,7 @@ def battle():
             nonlocal player_turn, damage_done
 
             title = "Select a target"
-            options = final_current_enemies
+            options = enemy_names
             option,index = pick(options, title)
 
             if index == 0:
@@ -36,7 +36,7 @@ def battle():
                 (input)
                 if first_enemy.health <= 0:
                     print(f"{first_enemy.name} is defeated!")
-                    final_current_enemies.pop(0)
+                    final_enemies.pop(0)
                 input()
                 player_turn = False
             elif index == 1:
@@ -48,7 +48,7 @@ def battle():
                 (input)
                 if second_enemy.health <= 0:
                     print(f"{second_enemy.name} is defeated!")
-                    final_current_enemies.pop(1)
+                    final_enemies.pop(1)
                 input()
                 player_turn = False
             elif index == 2:
@@ -60,7 +60,7 @@ def battle():
                 (input)
                 if third_enemy.health <= 0:
                     print(f"{third_enemy.name} is defeated!")
-                    final_current_enemies.pop(2)
+                    final_enemies.pop(2)
                 input()
                 player_turn = False
             elif index == 3: 
@@ -72,8 +72,8 @@ def battle():
                 (input)
                 if fourth_enemy.health <= 0:
                     print(f"{fourth_enemy.name} is defeated!")
-                    final_current_enemies.remove(fourth_enemy)
-                    final_current_enemies.pop(3)
+                    final_enemies.remove(fourth_enemy)
+                    final_enemies.pop(3)
                 input()
                 player_turn = False
         
@@ -94,7 +94,7 @@ def battle():
     
     #displays at start of battle
     while battle_intro:
-        for enemy in final_current_enemies:
+        for enemy in final_enemies:
             print(f"You encounter {enemy.name}!")
         input()
         battle_intro = False

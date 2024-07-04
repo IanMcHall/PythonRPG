@@ -1,8 +1,8 @@
 #TODO
 #Add critical hits, magic(?), and items
 #Allow player to make menu slection BEFORE enemy's first attack
-#Add better documentation (always true)
-#Letters not appending to repeating enemy names. Fix.
+#Add better documentation (always true) --especially needed for enemy.py
+
 
 
 #To play, run this file.
