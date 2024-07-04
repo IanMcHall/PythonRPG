@@ -9,8 +9,13 @@ def battle():
     damage_taken = first_enemy.attack - player_character.defense
     combat_active = first_enemy.health > 0 and player_character.health > 0
     battle_intro = first_enemy.health > 0 and player_character.health > 0
-    player_turn = player_character.speed > first_enemy.speed
+    player_turn = player_character.speed > first_enemy.speed and second_enemy.speed and third_enemy.speed and fourth_enemy.speed
     
+    
+    
+
+
+
     def battle_menu():
         #nonlocal allows me to call variables outside of the scope of this function.
         nonlocal damage_done, combat_active, player_turn
@@ -81,31 +86,34 @@ def battle():
         elif index == 1:
             print(f"\nYou assess the {first_enemy.name}\n")
             print(f"{first_enemy.name.capitalize()}: {first_enemy.bio}\n HP: {first_enemy.health}\n\n")
+            input()
         elif index == 2:
             print(f"\nYou have {player_character.health} HP.\n")
+            input()
 
     
     #displays at start of battle
     while battle_intro:
         for enemy in final_current_enemies:
-            print(f"You encounter {enemy}!")
+            print(f"You encounter {enemy.name}!")
         input()
         battle_intro = False
         combat_active = True
         player_turn = True
 
     while combat_active:
-        #player turn    
+            
         if player_turn:
             battle_menu()
-                
-            print(f"\nThe {first_enemy.name} attacks!\n")
-            input()
-            if damage_taken <= 0:
-                damage_taken = 1;
-            player_character.health -= damage_taken;
-            print(f"\nThe {first_enemy.name} hits you for {damage_taken} HP!\n")
-            player_turn = True
+        else:
+            for enemy in enemies_by_speed:
+                print(f"\nThe {enemy.name} attacks!\n")
+                input()
+                if damage_taken <= 0:
+                    damage_taken = 1;
+                player_character.health -= damage_taken;
+                print(f"\nThe {enemy.name} hits you for {damage_taken} HP!\n")
+                input()
             if player_character.health <= 0:
                 print("The enemy defeats you...")
                 combat_active = False

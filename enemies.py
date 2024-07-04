@@ -10,14 +10,28 @@ class enemy:
         self.speed = speed
         self.bio = bio
 
+    def __repr__(self):
+        return f"Enemy({self.name}, health={self.health}, attack={self.attack}, defense={self.defense}, speed={self.speed})"
+
 goblin = enemy("goblin", 6, 2, 1, 2, "Generic fantasy fodder.")
 bearbug = enemy("bearbug", 2, 2, 3, 4, "A tiny, insect sized bear. Its ferocious growls reach your ears only as squeaks.")
 bolder = enemy("bolder", 10, 3, 5, 1, "A particularly brave rock. It looks at you as if to say 'Who went and made you paper?'")
+edgehog = enemy("edgehog", 8, 3, 3, 8, "The rootin-tootinist, fastest little critter you ever did see.")
 #reaper is a test enemy and is too strong for gameplay
 reaper = enemy("reaper", 100, 100, 100, 100, "There is no escape from death...")
 
+enemy_dict = {
+    "goblin": goblin,
+    "bearbug": bearbug,
+    "bolder": bolder,
+    "edgehog": edgehog,
+    "reaper": reaper
+}
+
 #current slection of enemies that are possible to encounter.
-enemies = [goblin, bearbug]
+enemies = [goblin]
+#bearbug, bolder, edgehog
+
 first_enemy = random.choice(enemies)
 second_enemy = random.choice(enemies)
 third_enemy = random.choice(enemies)
@@ -63,8 +77,26 @@ def number_of_enemies():
              final_current_enemies.append(updated_name)
         else:
              final_current_enemies.append(enemy)
-    return final_current_enemies
-    # for enemy in final_current_enemies:
-    #      print(enemy)
+
+    final_enemies = []
+
+    for name in final_current_enemies:
+        if ' ' in name:
+              base_name, letter = name.split(' ')
+              final_enemies.append(enemy_dict[base_name])
+        else:
+             final_enemies.append(enemy_dict[name])
+    return final_enemies
+    #return final_current_enemies
     
-final_current_enemies = number_of_enemies()
+final_enemies = number_of_enemies()
+#inal_current_enemies = number_of_enemies()
+
+#final_enemies = [enemy_dict[name] for name in final_current_enemies]
+
+#enemies_by_speed = sorted(final_enemies, key=lambda enemy:enemy.speed, reverse=True)
+
+for enemy in final_enemies:
+     print(enemy.name)
+
+
