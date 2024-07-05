@@ -103,8 +103,7 @@ def battle():
         input()
         battle_intro = False
         combat_active = True
-        player_turn = True
-
+        
     while combat_active:
             
         if player_turn:
